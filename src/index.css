@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&family=Ms+Madi&display=swap');
+
+:root{
+  --transition: all 0.5s ease;
+}
+/*themes*/
+.light-theme{
+  --primary-color : #65B891;
+  --secondary-color: #2F2235;
+  --neutral-light: #4E5340;
+  --neutral-dark: #FFFFFF;
+}
+
+.girl-theme{
+  --primary-color : #CB0040;
+  --secondary-color: #F9B5AC;
+  --neutral-light: #D4F2D2;
+  --neutral-dark: #2C1320;
+}
+
+.nature-theme{
+  --primary-color : ;
+  --secondary-color: ;
+  --neutral-light: ;
+  --neutral-dark: ;
+}
+
+.dark-theme{
+  --primary-color : #607B7D;
+  --secondary-color: #8f9c96;
+  --neutral-light: #F2F4F3;
+  --neutral-dark: #161616;
+}
+/*End themes*/
+
+
+/*Generale rules*/
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+button{
+  cursor: pointer;
+  border: none;
+}
+a{
+  text-decoration: none;
+  display: block;
+  cursor: pointer;
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+._flex_center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*End generale rules*/
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--neutral-dark);
+}
