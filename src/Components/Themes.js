@@ -10,9 +10,9 @@ const Themes = () => {
   const { theme, setTheme } = useAppContext();
   const [show, setShow] = useState(false);
   return (
-    <Wrapper show = {show}>
+    <Wrapper show={show}>
       {themes.map((item) => {
-        const { id, name, title, color } = item;
+        const { id, name, color } = item;
         return (
           <Theme key={id} color={color} onClick={() => setTheme(name)} className='_flex_center'>
             {theme === name ? <MdOutlineDownloadDone/> : ''}
