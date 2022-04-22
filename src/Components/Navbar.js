@@ -1,49 +1,33 @@
 import React from "react";
 import styled from "styled-components";
-import { FiLogOut, FiShoppingCart } from "react-icons/fi";
 import { FaBars, FaWindowClose } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 
 //local imports
 import { tablette } from "../Utilities/Responsive";
 import { useAppContext } from "../context";
 import {largescreen} from '../Utilities/Responsive';
+import { links } from "../Utilities/constants";
+import NavButtons from "./NavButtons";
+import Logo from "./Logo";
 
 const Navbar = () => {
   const { showSidebar, setShowSidebar } = useAppContext();
+
   return (
     <Wrapper>
-      <Logo>
-        <span>
-          Shoo<strong>Ping</strong>
-        </span>
-      </Logo>
+      <Logo/>
       <Menu className="links-container">
         <ul className="links">
-          <li>
-            <a href="/">Home</a>
-          </li>
-          <li>
-            <a href="/">About</a>
-          </li>
-          <li>
-            <a href="/">Products</a>
-          </li>
-          <li>
-            <a href="/">Checkout</a>
-          </li>
+          {
+            links.map(item => {
+              const {id, name, link} = item;
+              return <NavLink key={id} to={link}>{name}</NavLink>
+            })
+          }
         </ul>
       </Menu>
-      <Actions>
-        <CartIcon>
-          Cart
-          <FiShoppingCart className="icon" />
-          <Badge className="_flex_center">0</Badge>
-        </CartIcon>
-        <Logout>
-          Logout
-          <FiLogOut className="icon" />
-        </Logout>
-      </Actions>
+      <NavButtons container='navbar'/>
       {!showSidebar ? (
         <ToggleMenu
           className="_flex_center"
@@ -66,7 +50,7 @@ const Navbar = () => {
 export default Navbar;
 
 const Wrapper = styled.header`
-  min-height: 70px;
+  height: 70px;
   background: var(--neutral-dark);
   display: flex;
   justify-content: space-between;
@@ -74,35 +58,32 @@ const Wrapper = styled.header`
   padding: 20px 40px;
 `;
 
-const Logo = styled.div`
-  font-size: 30px;
-  font-weight: 300;
-  font-style: italic;
-  text-shadow: 0px 3px 5px #cb0040;
-  font-family: "Ms Madi", cursive;
-  strong {
-    color: #cb0040;
-  }
-`;
+
 const Menu = styled.div`
   ul {
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--primary-color);
   }
 
   a {
-    padding: 7px 15px;
+    padding: 0px 15px;
     color: var(--secondary-color);
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 300;
     letter-spacing: 1.5px;
     transition: var(--transition);
     position: relative;
+    width: 120px;
+    text-align: left;
+    
   }
 
-  a:hover {
+  a:hover,
+  a.active {
     background: var(--neutral-light);
     color: var(--primary-color);
+    font-weight: bold;
   }
 
   a::before {
@@ -122,42 +103,7 @@ const Menu = styled.div`
 
   ${tablette({ display: "none" })}
 `;
-const Actions = styled.div`
-  display: flex;
-  gap: 20px;
 
-  .icon {
-    font-size: 25px;
-    margin-left: 5px;
-  }
-  ${tablette({ display: "none" })}
-`;
-
-const CartIcon = styled.div`
-  position: relative;
-  font-weight: bold;
-  color: var(--secondary-color);
-  font-size: 20px;
-  cursor: pointer;
-`;
-const Badge = styled.span`
-  position: absolute;
-  background: var(--primary-color);
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  top: -20px;
-  right: -15px;
-  color: var(--neutral-light);
-  font-size: 13px;
-`;
-const Logout = styled.button`
-  background: transparent;
-  border: none;
-  color: var(--secondary-color);
-  font-size: 20px;
-  font-weight: bold;
-`;
 
 const ToggleMenu = styled.button`
   font-size: 30px;

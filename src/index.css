@@ -7,14 +7,14 @@
 .light-theme{
   --primary-color : #65B891;
   --secondary-color: #2F2235;
-  --neutral-light: #4E5340;
+  --neutral-light: #cacec0af;
   --neutral-dark: #FFFFFF;
 }
 
 .girl-theme{
   --primary-color : #CB0040;
   --secondary-color: #F9B5AC;
-  --neutral-light: #D4F2D2;
+  --neutral-light: #ecd2f263;
   --neutral-dark: #2C1320;
 }
 
@@ -28,7 +28,7 @@
 .dark-theme{
   --primary-color : #607B7D;
   --secondary-color: #8f9c96;
-  --neutral-light: #F2F4F3;
+  --neutral-light: #b3b4b3b4;
   --neutral-dark: #161616;
 }
 /*End themes*/
@@ -69,4 +69,8 @@ body {
   padding: 0;
   font-family: 'Cairo', sans-serif;
   background-color: var(--neutral-dark);
+}
+
+main{
+  min-height: calc(100vh - 190px);
 }
