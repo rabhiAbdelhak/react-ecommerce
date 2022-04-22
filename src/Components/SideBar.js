@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import NavButtons from "./NavButtons";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //local imports
 import { useAppContext } from "../context";
@@ -20,9 +20,9 @@ const SideBar = () => {
             const { id, name, link } = item;
             return (
               <li key={id} onClick={() => setShowSidebar(false)}>
-                <NavLink  to={link}>
+                <Link  to={link}>
                   {name}
-                </NavLink>
+                </Link>
               </li>
             );
           })}

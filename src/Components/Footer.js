@@ -5,7 +5,7 @@ import Logo from './Logo'
 const Footer = () => {
   return (
     <Wrapper className='_flex_center'>
-          <Copyright>&copy;2022 </Copyright>
+          <Copyright>2022 </Copyright>
           <Logo/>
           <p>Made with Love by <strong>Rabhi Abdelhak</strong></p>
     </Wrapper>

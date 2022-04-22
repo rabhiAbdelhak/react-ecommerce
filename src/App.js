@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import { Footer, Navbar, SideBar, Themes } from "./Components";
 import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout} from './Pages';
 
-function App() {
+const  App = () => {
   return (
     <div>
       <Navbar />

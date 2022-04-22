@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { FaBars, FaWindowClose } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //local imports
 import { tablette } from "../Utilities/Responsive";
@@ -22,7 +22,7 @@ const Navbar = () => {
           {
             links.map(item => {
               const {id, name, link} = item;
-              return <NavLink key={id} to={link}>{name}</NavLink>
+              return <Link key={id} to={link}>{name}</Link>
             })
           }
         </ul>
@@ -50,7 +50,7 @@ const Navbar = () => {
 export default Navbar;
 
 const Wrapper = styled.header`
-  height: 70px;
+  height: 90px;
   background: var(--neutral-dark);
   display: flex;
   justify-content: space-between;
