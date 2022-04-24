@@ -1,19 +1,20 @@
 import React from "react";
 import styled from "styled-components";
 import { FaBars, FaWindowClose } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 //local imports
 import { tablette } from "../Utilities/Responsive";
-import { useAppContext } from "../context";
+import { useComponentContext } from "../contexts/component_context";
 import {largescreen} from '../Utilities/Responsive';
 import { links } from "../Utilities/constants";
 import NavButtons from "./NavButtons";
 import Logo from "./Logo";
 
-const Navbar = () => {
-  const { showSidebar, setShowSidebar } = useAppContext();
 
+const Navbar = () => {
+  
+  const { showSidebar, openSidebar, closeSidebar } = useComponentContext();
   return (
     <Wrapper>
       <Logo/>
@@ -22,23 +23,26 @@ const Navbar = () => {
           {
             links.map(item => {
               const {id, name, link} = item;
-              return <Link key={id} to={link}>{name}</Link>
+              return <NavLink key={id} to={link}>{name}</NavLink>
             })
           }
+          <li>
+            <NavLink to='/checkout'>Checkout</NavLink>
+          </li>
         </ul>
       </Menu>
       <NavButtons container='navbar'/>
       {!showSidebar ? (
         <ToggleMenu
           className="_flex_center"
-          onClick={() => setShowSidebar(true)}
+          onClick={() => openSidebar()}
         >
           <FaBars />
         </ToggleMenu>
       ) : (
         <CloseMenu
           className="_flex_center"
-          onClick={() => setShowSidebar(false)}
+          onClick={closeSidebar}
         >
           <FaWindowClose />
         </CloseMenu>

@@ -1,11 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
+
 //local imports
 import { Footer, Navbar, SideBar, Themes } from "./Components";
 import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout} from './Pages';
 
 const  App = () => {
+  
   return (
     <div>
       <Navbar />

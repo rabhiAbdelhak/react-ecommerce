@@ -7,13 +7,15 @@
 .light-theme{
   --primary-color : #65B891;
   --secondary-color: #2F2235;
-  --neutral-light: #cacec0af;
+  --neutral-light: rgb(186, 201, 190);
+  --very-light-color: #effff6;
   --neutral-dark: #FFFFFF;
 }
 
 .girl-theme{
   --primary-color : #CB0040;
-  --secondary-color: #F9B5AC;
+  --secondary-color: #f88272;
+  --very-light-color: #351727;
   --neutral-light: #ecd2f263;
   --neutral-dark: #2C1320;
 }
@@ -29,6 +31,7 @@
   --primary-color : #607B7D;
   --secondary-color: #8f9c96;
   --neutral-light: #b3b4b3b4;
+  --very-light-color: #222;
   --neutral-dark: #161616;
 }
 /*End themes*/
@@ -42,14 +45,54 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
-button{
+
+h1{
+  font-size: 45px;
+  line-height: 1.2;
+  letter-spacing: 2px;
+  margin: 0;
+  padding:0;
+}
+
+@media (max-width: 992px) and (min-width: 768px){
+  h1{
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px){
+  h1{
+    font-size: 30px;
+  }
+}
+
+button,
+.btn{
   cursor: pointer;
   border: none;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+  transition: var(--transition);
 }
+
+button:hover,
+.btn:hover{
+  transform: scale(1.08);
+}
+
+button:active,
+.btn:active{
+  transform: scale(0.9);
+}
+
 a{
   text-decoration: none;
   display: block;
   cursor: pointer;
+}
+
+img{
+  max-width: 100%;
 }
 
 ul{
@@ -63,14 +106,23 @@ ul{
   justify-content: center;
   align-items: center;
 }
-/*End generale rules*/
+
 body {
   margin: 0;
   padding: 0;
   font-family: 'Cairo', sans-serif;
   background-color: var(--neutral-dark);
+
 }
 
 main{
   min-height: calc(100vh - 210px);
 }
+
+.container {
+  width: 90vw;
+  margin: 0 auto;
+  padding: 100px 0;
+}
+/*End generale rules*/
+

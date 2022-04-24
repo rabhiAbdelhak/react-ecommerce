@@ -4,22 +4,22 @@ import {AiOutlineBgColors} from 'react-icons/ai'
 import {MdOutlineDownloadDone} from 'react-icons/md'
 //local imports 
 import { themes } from "../Utilities/data";
-import { useAppContext } from "../context";
+import { useComponentContext } from "../contexts/component_context";
+import { CHANGE_THEME } from "../Utilities/actions";
 
 const Themes = () => {
-  const { theme, setTheme } = useAppContext();
-  const [show, setShow] = useState(false);
+  const { theme,showThemeContainer, openThemeContainer, closeThemeContainer , changeTheme} = useComponentContext();
   return (
-    <Wrapper show={show}>
+    <Wrapper show={showThemeContainer}>
       {themes.map((item) => {
         const { id, name, color } = item;
         return (
-          <Theme key={id} color={color} onClick={() => setTheme(name)} className='_flex_center'>
+          <Theme key={id} color={color} onClick={() => changeTheme(name)} className='_flex_center'>
             {theme === name ? <MdOutlineDownloadDone/> : ''}
           </Theme>
         );
       })}
-      <button onClick={() => setShow(prev => !prev)}><AiOutlineBgColors/></button>
+      <button onClick={() => showThemeContainer ? closeThemeContainer() : openThemeContainer() }><AiOutlineBgColors/></button>
     </Wrapper>
   );
 };
@@ -39,6 +39,7 @@ const Wrapper = styled.div`
   transition: var(--transition);
   box-shadow: 2px 2px 7px rgb(0 0 0 / 0.7);
   transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
+  z-index: 1000;
 
   min-height: 50px;
   display: flex;

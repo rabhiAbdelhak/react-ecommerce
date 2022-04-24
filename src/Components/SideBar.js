@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import NavButtons from "./NavButtons";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //local imports
-import { useAppContext } from "../context";
+import { useComponentContext } from "../contexts/component_context";
 import Navbar from "./Navbar";
 import { largescreen } from "../Utilities/Responsive";
 import { links } from "../Utilities/constants";
 
 const SideBar = () => {
-  const { showSidebar, setShowSidebar } = useAppContext();
+  const { showSidebar , closeSidebar} = useComponentContext();
   return (
     <Wrapper show={showSidebar}>
       <Navbar />
@@ -19,16 +19,17 @@ const SideBar = () => {
           {links.map((item) => {
             const { id, name, link } = item;
             return (
-              <li key={id} onClick={() => setShowSidebar(false)}>
-                <Link  to={link}>
-                  {name}
-                </Link>
+              <li key={id} onClick={closeSidebar}>
+                <NavLink to={link}>{name}</NavLink>
               </li>
             );
           })}
+          <li>
+            <NavLink to="/checkout" onClick={closeSidebar}>Checkout</NavLink>
+          </li>
         </ul>
       </Menu>
-      <NavButtons/>
+      <NavButtons />
     </Wrapper>
   );
 };
