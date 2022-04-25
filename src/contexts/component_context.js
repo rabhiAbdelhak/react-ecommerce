@@ -18,6 +18,7 @@ const initialState = {
   showSidebar : false,
   theme: localStorage.getItem('theme') || 'light-theme',
   showThemeContainer : false,
+  showModal: false,
 }
 
 
@@ -32,6 +33,15 @@ const ComponentContextProvider = ({children}) => {
   const closeSidebar = () => {
     dispatch({type:CLOSE_SIDEBAR})
   }
+
+  const openModal = () => {
+    dispatch({type: 'OPEN_MODAL'});
+  }
+  
+  const closeModal = () => {
+    dispatch({type:'CLOSE_MODAL'});
+  }
+
   
   const openThemeContainer = () => {
     dispatch({type:OPEN_THEME_CONTAINER})
@@ -63,6 +73,9 @@ const ComponentContextProvider = ({children}) => {
           showThemeContainer: state.showThemeContainer,
           changeTheme,
           theme: state.theme,
+          showModal: state.showModal,
+          openModal,
+          closeModal,
       }
   }>
       {children}

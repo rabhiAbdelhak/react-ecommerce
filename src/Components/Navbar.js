@@ -4,7 +4,7 @@ import { FaBars, FaWindowClose } from "react-icons/fa";
 import {NavLink } from "react-router-dom";
 
 //local imports
-import { tablette } from "../Utilities/Responsive";
+import { mobile, tablette } from "../Utilities/Responsive";
 import { useComponentContext } from "../contexts/component_context";
 import {largescreen} from '../Utilities/Responsive';
 import { links } from "../Utilities/constants";
@@ -60,6 +60,7 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
+  ${mobile({padding: '10px'})};
 `;
 
 

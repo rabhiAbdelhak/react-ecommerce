@@ -6,7 +6,28 @@ import NavButtons from "./NavButtons";
 import Footer from "./Footer";
 import Logo from "./Logo";
 import Hero from "./Hero";
-import Services from './Services';
-import Newsletter from './Newsletter';
-import FeaturedProducts from './FeaturedProdutcs'
-export {Navbar, SideBar, Themes, PageTitle , NavButtons, Footer, Logo, Hero,FeaturedProducts, Services, Newsletter}
+import Services from "./Services";
+import Newsletter from "./Newsletter";
+import FeaturedProducts from "./FeaturedProdutcs";
+import Loading from "./Loading";
+import ErrorComponent from "./ErrorComponent";
+import ProductSlider from "./ProductSlider";
+import Stars from "./Stars";
+
+export {
+  Navbar,
+  SideBar,
+  Themes,
+  PageTitle,
+  NavButtons,
+  Footer,
+  Logo,
+  Hero,
+  FeaturedProducts,
+  Services,
+  Newsletter,
+  Loading,
+  ErrorComponent,
+  ProductSlider,
+  Stars,
+};
