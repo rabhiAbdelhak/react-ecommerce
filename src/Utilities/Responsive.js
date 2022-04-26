@@ -7,6 +7,14 @@ export const mobile = (style) => {
     }`
 }
 
+export const middleScreen = (style) => {
+    
+    return css`@media (min-width: 450px) and (max-width: 768px) {
+        ${style}
+    }`
+}
+
+
 export const tablette = (style) => {
     
     return css`@media (max-width: 992px) {

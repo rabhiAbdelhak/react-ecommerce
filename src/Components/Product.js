@@ -15,7 +15,6 @@ const Product = ({ id, name, price, image }) => {
   const getSlider = () => {
     fetchSingleProduct(id);
     openModal();
-    console.log('first step');
   }
   return (
     <Wrapper key={id}>

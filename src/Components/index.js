@@ -13,6 +13,12 @@ import Loading from "./Loading";
 import ErrorComponent from "./ErrorComponent";
 import ProductSlider from "./ProductSlider";
 import Stars from "./Stars";
+import ProductActions from "./ProductActions";
+import Modal from './Modal';
+import Product from "./Product";
+import Filters from './Filters';
+import GridView from "./GridView";
+import ListView from "./ListView";
 
 export {
   Navbar,
@@ -30,4 +36,10 @@ export {
   ErrorComponent,
   ProductSlider,
   Stars,
+  ProductActions,
+  Modal, 
+  Product,
+  Filters,
+  GridView, 
+  ListView
 };

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai'
+
 
 
 //local imports
-import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars } from "../Components";
+import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars, ProductActions } from "../Components";
 
 //local imports
 import { useProductsContext } from "../contexts/products_context";
@@ -73,18 +73,8 @@ const SingleProduct = () => {
             <div>
               <h3>Brand : </h3> <p>{company}</p>
             </div>
-            <div>
-              <h3>Colors : </h3> {colors.map((color, index) => <Color key={index} color={color}></Color>)}
-            </div>
           </MoreInfo>
-          <Actions>
-             <div className='actions-counter'>
-               <button className="actions-counter-btn _flex_center"><AiOutlineLeft/></button>
-               <span className="actions-counter-count">100</span>
-               <button className="actions-counter-btn _flex_center"><AiOutlineRight/></button>
-             </div>
-             <button className='actions-btn' >Add to Cart</button>
-          </Actions>
+          <ProductActions/>
         </Information>
       </Container>
     </Wrapper>
@@ -146,48 +136,5 @@ const MoreInfo = styled.div`
 }
 `;
 
-const Color = styled.div`
-width: 20px;
-height: 20px;
-border-radius: 5px;
-background: ${props => props.color};
-`
-
-const Actions = styled.div`
-background: var(--very-light-color);
-border-top: 1px solid var(--secondary-color);
-margin-top: 20px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 10px 15px;
 
 
-.actions-counter{
-  display: flex;
-  align-items: center;
-  gap: 5px;
-
-}
-.actions-counter-btn{
-width: 25px;
-height: 25px;
-border-radius: 50%;
-background: var(--neutral-light);
-color: var(--secondary-color);
-font-weight: ;
-
-}
-
-.actions-counter-count{
-font-weight: bold;
-color: var(--secondary-color);
-font-size: 18px;
-}
-
-.actions-btn{
-  padding: 8px;
-  background: var(--secondary-color);
-  color: var(--primary-color);
-}
-`

@@ -10,19 +10,19 @@ import ErrorComponent from './ErrorComponent';
 import Loading from './Loading';
 import ProductSlider from './ProductSlider';
 
-const ProductImagesModal = () => {
-  const {single_product :product, single_product_loading: loading, single_product_error: error} = useProductsContext();
+const Modal = () => {
+  const {single_product_loading: loading, single_product_error: error} = useProductsContext();
   const {showModal ,closeModal} = useComponentContext();
   
   return (
     <Wrapper className='_flex_center' show={showModal}>
         <button className='modal-close' onClick={closeModal}><FaWindowClose/></button>
-        {!loading && !error ? <ProductSlider images={product.images}/> : loading ? <Loading/> : <ErrorComponent/>}
+        {!loading && !error ? <ProductSlider/> : loading ? <Loading/> : <ErrorComponent/>}
     </Wrapper>
   )
 }
 
-export default ProductImagesModal
+export default Modal
 
 const Wrapper = styled.div`
 position: fixed;
@@ -32,10 +32,11 @@ left:0;
 padding: 100px;
 width: 100%;
 height: 100vh;
-transition: 0.3s;
+transition: 0.6s;
 transform: ${props => props.show ? 'scale(1)' : 'scale(0)'};
 ${mobile({padding: '10px'})};
 ${tablette({padding: '40px'})};
+z-index: 1001;
 
 .modal-close{
     position: absolute;

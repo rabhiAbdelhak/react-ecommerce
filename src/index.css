@@ -123,6 +123,7 @@ main{
   width: 90vw;
   margin: 0 auto;
   padding: 100px 0;
+  max-width: 1050px;
 }
 /*End generale rules*/
 

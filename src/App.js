@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 //local imports
-import { Footer, Navbar, SideBar, Themes } from "./Components";
+import { Footer, Modal, Navbar, SideBar, Themes } from "./Components";
 import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout} from './Pages';
 
 const  App = () => {
@@ -13,6 +13,7 @@ const  App = () => {
       <Navbar />
       <SideBar />
       <Themes />
+      <Modal/>
       <Routes className='variable-surface'>
         <Route path='/' exact element={<Home/>}/>
         <Route path='/about' exact element={<About/>}/>

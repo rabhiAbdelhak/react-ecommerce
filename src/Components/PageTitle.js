@@ -5,7 +5,7 @@ import { mobile } from '../Utilities/Responsive'
 const PageTitle = ({title}) => {
   return (
     <Wrapper>
-         <h1>{title}</h1>
+         <p>{title}</p>
     </Wrapper>
   )
 }
@@ -21,9 +21,10 @@ padding: 10px 15px;
 color: var(--primary-color);
 background: var(--neutral-light);
 
-h1{
-  font-size: 20px;
+p {
+  font-size: 25px;
   text-align: center;
+  font-weight: bold;
   ${mobile({fontSize: '16px'})}
 }
 

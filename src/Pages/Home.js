@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 //local imports
 import { Hero, Services, Newsletter, FeaturedProducts} from '../Components'
-import ProductImagesModal from '../Components/ProductImagesModal'
+
 
 const Home = () => {
   return (
@@ -12,7 +12,6 @@ const Home = () => {
       <FeaturedProducts/>
       <Services/>
       <Newsletter/>
-      <ProductImagesModal/>
     </Wrapper>
   )
 }

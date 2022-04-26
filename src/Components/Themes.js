@@ -5,7 +5,7 @@ import {MdOutlineDownloadDone} from 'react-icons/md'
 //local imports 
 import { themes } from "../Utilities/data";
 import { useComponentContext } from "../contexts/component_context";
-import { CHANGE_THEME } from "../Utilities/actions";
+
 
 const Themes = () => {
   const { theme,showThemeContainer, openThemeContainer, closeThemeContainer , changeTheme} = useComponentContext();

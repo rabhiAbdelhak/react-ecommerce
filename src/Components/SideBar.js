@@ -45,6 +45,7 @@ const Wrapper = styled.aside`
   border-bottom: 20px solid var(--primary-color);
   background: var(--neutral-dark);
   transition: 0.8s;
+  z-index: 999;
   transform: ${(props) => (props.show ? "translateY(0)" : "translateY(-100%)")};
   ${largescreen({ display: "none" })};
   header {

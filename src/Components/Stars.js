@@ -3,25 +3,21 @@ import styled from 'styled-components';
 import {FaStar, FaRegStar, FaStarHalfAlt} from 'react-icons/fa';
 
 const Stars = ({stars, reviews}) => {
-  
-  const ships = [];
-  let i = 5;
-  let n = stars;
-  while(i > 0 ){
-      if(n > 1){
-         ships.push(<FaStar/>)
-         n--;
-      }else if(n < 1 && n > 0){
-         ships.push(<FaStarHalfAlt/>)
-         n--;
+
+
+  const sheeps = Array.from({length : 5} , (_, index) => {
+      if(stars >= index + 1){
+        return <FaStar/>
+      }else if(stars > index + 0.5){
+        return <FaStarHalfAlt/>
       }else{
-         ships.push(<FaRegStar/>)
+        return <FaRegStar/>
       }
-      i--;
-  }
+  });
+  
   return (
     <Wrapper>
-         {ships.map((star, index) => {
+         {sheeps.map((star, index) => {
              return <div key={index} className='icon'>{star}</div>;
          })}
          <p> {stars} ({reviews} Reviews) </p>

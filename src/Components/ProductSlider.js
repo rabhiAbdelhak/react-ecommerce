@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { mobile } from "../Utilities/Responsive";
 import {AiOutlineLeft, AiOutlineRight} from 'react-icons/ai'
+import { useProductsContext } from "../contexts/products_context";
 
-const ProductSlider = ({ images }) => {
+const ProductSlider = () => {
+  const {single_product : {images}} = useProductsContext();
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const checkCurrentIndex = (index) => {
@@ -58,6 +60,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
+  max-width: 900px;
  
 
   .slider-current-img {
