@@ -32,7 +32,7 @@ const Products = () => {
     );
   return (
     <Wrapper>
-      <PageTitle title="Home >> Products" />
+      
       <Sort/>
       <Container className="container">
         <ListProducts grid={gridView}>

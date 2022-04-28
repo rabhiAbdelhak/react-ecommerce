@@ -54,6 +54,10 @@ const Navbar = () => {
 export default Navbar;
 
 const Wrapper = styled.header`
+  position: fixed;
+  top:0;
+  left:0;
+  width: 100%;
   height: 90px;
   background: var(--neutral-dark);
   display: flex;
@@ -61,6 +65,8 @@ const Wrapper = styled.header`
   align-items: center;
   padding: 20px 40px;
   ${mobile({padding: '10px'})};
+  z-index: 1002;
+  box-shadow: 0 2px 6px var(--neutral-light);
 `;
 
 

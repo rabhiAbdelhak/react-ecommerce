@@ -6,15 +6,10 @@ export const formatPrice = (number) => {
 
 }
 
-export const uniqueValues = (products, group) => {
-   let newArray = []
-   if(group === 'colors'){
-       newArray = products.reduce((acc, pr) => {
-           return [...acc , ...pr.colors];
-       }, [])
-   }
-
-   return [...new Set(newArray)]
+export const uniqueValues = (array, type) => {
+   let uniqueValuesArray = array.map(item => item[type]);
+   if(type==='colors') uniqueValuesArray = uniqueValuesArray.flat();
+   return [...new Set(uniqueValuesArray)];
 } 
 
 export const intersect = (arr1 , arr2)=>{

@@ -1,11 +1,10 @@
 import React, {useEffect, useRef } from "react";
 import styled from "styled-components";
-import { MdOutlineDownloadDone } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
 
 //local imports
 import { useFilterContext } from "../contexts/filter_context";
-import { uniqueValues } from "../Utilities/helpers";
-import { middleScreen, mobile } from "../Utilities/Responsive";
+import { formatPrice, uniqueValues } from "../Utilities/helpers";
 import { useComponentContext } from "../contexts/component_context";
 
 const Filters = () => {
@@ -15,14 +14,14 @@ const Filters = () => {
     all_products: products,
     updateCategoriesFilter,
     updateFilters,
-    filters: { colors, categories, companies, shipping },
+    filters: { colors, categories, companies, shipping, max_price, min_price, price},
     clearFilters,
   } = useFilterContext();
   const {showFilters} = useComponentContext()
 
-  const allCategories = [...new Set(products.map((p) => p.category))];
-  const allCompanies = [...new Set(products.map((p) => p.company))];
-  const allColors = uniqueValues(products, "colors");
+  const allCategories = uniqueValues(products, "category");
+  const allCompanies =  uniqueValues(products, "company");
+  const allColors =     uniqueValues(products, "colors");
   
   const changeContainerHeight = () => {
     const formHeight = formRef.current.getBoundingClientRect().height;
@@ -122,7 +121,7 @@ const Filters = () => {
                     }`}
                     style={{ background: color }}
                   >
-                    {colors.includes(color) ? <MdOutlineDownloadDone /> : null}
+                    {colors.includes(color) ? <FaCheck /> : null}
                   </label>
                 </div>
               );
@@ -131,7 +130,7 @@ const Filters = () => {
         </section>
         {/*end colors inputs*/}
 
-        {/*Shipping input */}
+        {/*Shipping and price section */}
         <section className="filters-form-section">
           <h3 className="filters-form-section-title">Other filters : </h3>
           <div className="form-group">
@@ -145,7 +144,12 @@ const Filters = () => {
             />
             <label htmlFor="shipping">Free Shipping</label>
           </div>
+          <div className="form-group">
+            <label>{formatPrice(price)}</label><br/>
+            <input type='range' max={max_price} min={min_price} value={price} name='price' onChange={updateFilters} />
+          </div>
         </section>
+        {/* end of section */}
       </form>
       <button className="clear-filter-btn" onClick={clearFilters}>Clear Filter</button>
     </Wrapper>
@@ -225,13 +229,15 @@ const Wrapper = styled.section`
   }
 
   .form-group {
-    display: flex;
-    align-items: center;
     padding: 10px 0;
   }
+
+  .form-group input[type='checkbox']{
+    margin-right: 10px;
+  }
+  
   .form-group label {
     color: var(--secondary-color);
-    margin-left: 10px;
   }
 
   .clear-filter-btn {

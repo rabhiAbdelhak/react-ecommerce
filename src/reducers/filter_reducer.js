@@ -22,7 +22,7 @@ const filter_reducer = (state, action) => {
         all_products: action.payload,
         filters: {
           ...state.filters,
-          prices: { ...state.prices, max_price: maxPrice, min_price: minPrice },
+           max_price: maxPrice, min_price: minPrice, price: maxPrice,
         },
       };
     case ENABLE_GRID_VIEW:
@@ -89,12 +89,12 @@ const filter_reducer = (state, action) => {
           };
         }
       }
-      //update shipping
+      //update shipping, price and text
       return {
         ...state,
         filters: {
           ...state.filters,
-          [name]: checked !== null ? checked : value,
+          [name]: checked !== null ? checked : name === 'price'  ? parseFloat(value) : value,
         },
       };
 
@@ -103,10 +103,10 @@ const filter_reducer = (state, action) => {
 
     //start products filter
     case FILTER_PRODUCTS:
-      const { text, categories, companies, colors, shipping } = state.filters;
-      let temp_products = state.all_products;
+      const { text, categories, companies, colors, shipping, price, max_price} = state.filters;
+      let temp_products = [...state.all_products];
       //text filter
-      if (text.length > 0) {
+      if (text) {
         temp_products = temp_products.filter((pr) => pr.name.includes(text));
       }
       //categories
@@ -134,6 +134,11 @@ const filter_reducer = (state, action) => {
       if (shipping) {
         temp_products = temp_products.filter((pr) => pr.shipping);
       }
+
+      //price
+      if(price < max_price){
+        temp_products = temp_products.filter((pr) => pr.price <= price);
+      }
       return { ...state, filtered_products: temp_products };
     //end products filter
 
@@ -142,15 +147,12 @@ const filter_reducer = (state, action) => {
       return {
         ...state,
         filters: {
+          ...state.filters,
           text: "",
           categories: [],
           companies: [],
           colors: [],
-          prices: {
-            min_price: 0,
-            max_price: 0,
-            price: 0,
-          },
+          price: state.filters.max_price,
           shipping: false,
         },
       };

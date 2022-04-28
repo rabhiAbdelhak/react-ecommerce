@@ -117,6 +117,7 @@ body {
 
 main{
   min-height: calc(100vh - 210px);
+  margin-top: 90px;
 }
 
 .container {

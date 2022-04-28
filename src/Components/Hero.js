@@ -32,6 +32,7 @@ export default Hero
 const Wrapper = styled.section`
 display: flex;
 align-items: center;
+padding-top: 150px;
 `;
 
 const Text = styled.div`
