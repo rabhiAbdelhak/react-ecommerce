@@ -75,6 +75,11 @@ const Wrapper = styled.article`
     opacity: 0.7;
   }
 
+  .actions > .actions-btn:hover:active{
+    transform: scale(2);
+    opacity: 0;
+  }
+
   .info {
     display: flex;
     justify-content: space-between;
@@ -94,6 +99,7 @@ const Wrapper = styled.article`
     text-transform: capitalize;
     font-weight: 400;
     font-size: 17px;
+    line-height: 1.2;
   }
 
   .info .price {

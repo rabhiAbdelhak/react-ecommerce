@@ -3,14 +3,12 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 
-
-//local imports
-import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars, ProductActions } from "../Components";
-
 //local imports
 import { useProductsContext } from "../contexts/products_context";
 import { formatPrice } from "../Utilities/helpers";
 import { mobile, tablette } from "../Utilities/Responsive";
+import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars, ProductActions } from "../Components";
+
 
 const SingleProduct = () => {
   const { id } = useParams();

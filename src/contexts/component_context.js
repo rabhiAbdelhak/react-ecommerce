@@ -7,6 +7,7 @@ import {
   OPEN_THEME_CONTAINER,
   CLOSE_THEME_CONTAINER,
   CHANGE_THEME,
+  TOGGLE_FILTERS,
 } from '../Utilities/actions';
 
 import { component_reducer } from '../reducers/components_reducer';
@@ -19,6 +20,7 @@ const initialState = {
   theme: localStorage.getItem('theme') || 'light-theme',
   showThemeContainer : false,
   showModal: false,
+  showFilters : false,
 }
 
 
@@ -32,6 +34,10 @@ const ComponentContextProvider = ({children}) => {
   
   const closeSidebar = () => {
     dispatch({type:CLOSE_SIDEBAR})
+  }
+
+  const toggleFilters = () => {
+    dispatch({type: TOGGLE_FILTERS})
   }
 
   const openModal = () => {
@@ -65,17 +71,15 @@ const ComponentContextProvider = ({children}) => {
 
   return <AppContext.Provider value={
       {
+          ...state,
           openSidebar,
           closeSidebar,
-          showSidebar: state.showSidebar,
           openThemeContainer,
           closeThemeContainer,
-          showThemeContainer: state.showThemeContainer,
           changeTheme,
-          theme: state.theme,
-          showModal: state.showModal,
           openModal,
           closeModal,
+          toggleFilters
       }
   }>
       {children}

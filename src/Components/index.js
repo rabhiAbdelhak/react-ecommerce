@@ -17,8 +17,8 @@ import ProductActions from "./ProductActions";
 import Modal from './Modal';
 import Product from "./Product";
 import Filters from './Filters';
-import GridView from "./GridView";
-import ListView from "./ListView";
+import Sort from './Sort'
+
 
 export {
   Navbar,
@@ -40,6 +40,5 @@ export {
   Modal, 
   Product,
   Filters,
-  GridView, 
-  ListView
+  Sort,
 };

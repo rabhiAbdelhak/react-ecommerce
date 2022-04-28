@@ -10,6 +10,8 @@ export const component_reducer = (state, action) => {
       return { ...state, showThemeContainer: false };
     case "CHANGE_THEME":
       return { ...state, theme: action.payload };
+    case 'TOGGLE_FILTERS':
+      return {...state, showFilters : !state.showFilters}
     case "OPEN_MODAL":
       return { ...state, showModal: true };
     case "CLOSE_MODAL":

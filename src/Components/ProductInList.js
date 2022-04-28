@@ -5,6 +5,7 @@ import { FaSearch, FaCartPlus, FaImages } from "react-icons/fa";
 
 //local imports
 import { formatPrice } from "../Utilities/helpers";
+import { mobile } from "../Utilities/Responsive";
 
 const ProductInList = ({ id, name, description, image, price }) => {
   const [seeMore, setSeeMore] = useState(false);
@@ -15,14 +16,14 @@ const ProductInList = ({ id, name, description, image, price }) => {
       </div>
       <div className="info">
         <h2 className="name">{name}</h2>
-        <span className="price">{formatPrice(price)}</span>
+        <p className="price">{formatPrice(price)}</p>
         <p className="description">
-          {seeMore ? description : description.slice(0, 180) + "..."}
+          {seeMore ? description : description.slice(0, 120) + "..."}
           <span
             className="toggle-text-btn"
             onClick={() => setSeeMore((prev) => !prev)}
           >
-            {seeMore ? " See Less" : " See More..."}
+            {seeMore ? " \nSee Less" : " See More..."}
           </span>
         </p>
         <div className="actions">
@@ -48,7 +49,7 @@ const Wrapper = styled.article`
   align-items: flex-start;
   margin-bottom: 30px;
   padding-bottom: 10px;
-  border-bottom: 1px solid var(--very-light-color);
+  ${mobile({flexDirection: 'column'})};
 
   .image-holder {
     width: 180px;
@@ -56,6 +57,7 @@ const Wrapper = styled.article`
     margin-right: 20px;
     border-radius: 5px;
     overflow: hidden;
+    ${mobile({width: '90px', height: '100px'})};
   }
 
   .image-holder img {
@@ -74,20 +76,20 @@ const Wrapper = styled.article`
 
   .price {
     color: var(--secondary-color);
-    margin: 0;
     font-weight: bold;
   }
 
   .description {
     color: var(--neutral-light);
     font-size: 14px;
-    margin: 10px 0;
+    margin: 10px 0 15px;
     width: 100%;
     font-weight: bold;
   }
 
   .toggle-text-btn {
     color: var(--secondary-color);
+    text-decoration: underline;
     cursor: pointer;
     font-size: 13px;
   }
