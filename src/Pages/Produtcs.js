@@ -35,7 +35,7 @@ const Products = () => {
       
       <Sort/>
       <Container className="container">
-        <ListProducts grid={gridView}>
+        {products.length > 0 ? (<ListProducts grid={gridView}>
           {gridView &&
             products.map((product) => {
               return <Product key={product.id} {...product} />;
@@ -44,7 +44,7 @@ const Products = () => {
             products.map((product) => {
               return <ProductInList key={product.id} {...product} />;
             })}
-        </ListProducts>
+        </ListProducts>) : <h1 className='no-products-msg'>There are no products that match your filter !</h1>}
       </Container>
     </Wrapper>
   );
@@ -53,13 +53,21 @@ const Products = () => {
 export default Products;
 
 const Wrapper = styled.main`
-background: var(--very-light-color)
+background: var(--very-light-color);
 `;
 
 
 const Container = styled.section`
   display: flex;
-  padding: 10px 0;
+  min-height: 400px;
+  padding: 30px 0 50px;
+  
+  .no-products-msg{
+     font-size: 20px;
+     text-align: center;
+     color: var(--primary-color);
+     opacity: 0.6;
+  }
 `;
 
 const ListProducts = styled.div`

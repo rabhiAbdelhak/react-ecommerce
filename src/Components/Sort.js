@@ -131,14 +131,14 @@ const Wrapper = styled.section`
     display: flex;
     margin: 0 10px;
     border: 1px solid var(--secondary-color);
-    border-radius: 5px;
+    border-radius: var(--radius);
     ${mobile({ order: 4, width: "100%", margin: "5px 0" })}
   }
 
   .search-form input {
     flex: 1;
     height: 100%;
-    border-radius: 5px;
+    border-radius: var(--radius);
     border: none;
     padding: 1px 5px;
     background: transparent;
@@ -156,7 +156,7 @@ const Wrapper = styled.section`
     height: 25px;
     color: var(--secondary-color);
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: var(--radius);
   }
 
   .sort-actions-select:focus {

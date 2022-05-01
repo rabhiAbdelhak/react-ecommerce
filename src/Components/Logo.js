@@ -18,9 +18,9 @@ const Wrapper = styled.div`
   font-size: 30px;
   font-weight: 300;
   font-style: italic;
-  text-shadow: 0px 3px 5px #cb0040;
+  text-shadow: 0px 3px 5px #65B891;
   font-family: "Ms Madi", cursive;
   strong {
-    color: #cb0040;
+    color: #65B891;
   }
 `;

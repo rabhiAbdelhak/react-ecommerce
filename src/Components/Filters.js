@@ -195,7 +195,7 @@ const Wrapper = styled.section`
     color: var(--secondary-color);
     border: 1px solid var(--secondary-color);
     margin: 2px;
-    border-radius: 5px;
+    border-radius: var(--radius);
     cursor: pointer;
     height: 25px;
     font-size: 14px;
@@ -214,7 +214,7 @@ const Wrapper = styled.section`
     width: 20px;
     height: 20px;
     margin: 2px;
-    border-radius: 5px;
+    border-radius: var(--radius);
     cursor: pointer;
     opacity: 0.4;
     color: white;

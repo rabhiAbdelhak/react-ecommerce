@@ -1,14 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiLogOut, FiShoppingCart } from "react-icons/fi";
+import { useNavigate } from 'react-router-dom';
+import { useCartContext } from '../contexts/cart_context';
 
 const NavButtons = ({container}) => {
+  const navigate = useNavigate()
+  const {total_items} = useCartContext();
   return (
     <Wrapper container={container}>
-        <CartIcon>
+        <CartIcon onClick={() => navigate('/cart')}>
           Cart
           <FiShoppingCart className="icon" />
-          <Badge className="_flex_center">0</Badge>
+          <Badge className="_flex_center">{total_items}</Badge>
         </CartIcon>
         <Logout>
           Logout
@@ -50,7 +54,7 @@ const Badge = styled.span`
   border-radius: 50%;
   top: -20px;
   right: -15px;
-  color: var(--neutral-light);
+  color: white;
   font-size: 13px;
 `;
 

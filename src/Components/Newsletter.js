@@ -31,7 +31,7 @@ flex-direction : column;
 
 const Title = styled.h1`
 color: var(--primary-color);
-margin: bottom: 25px;
+margin-bottom: 25px;
 text-transform: capitalize;
 `
 
@@ -47,7 +47,7 @@ input{
   background: white;
   border: 1px solid var(--neutral-light);
   margin-right: 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   ${mobile({width: '80px', padding: '10px 5px'})}
 }
 

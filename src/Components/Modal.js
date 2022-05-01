@@ -36,7 +36,7 @@ transition: 0.6s;
 transform: ${props => props.show ? 'scale(1)' : 'scale(0)'};
 ${mobile({padding: '10px'})};
 ${tablette({padding: '40px'})};
-z-index: 1001;
+z-index: 1002;
 
 .modal-close{
     position: absolute;

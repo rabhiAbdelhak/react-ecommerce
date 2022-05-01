@@ -74,7 +74,6 @@ const Menu = styled.div`
   ul {
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--primary-color);
   }
 
   a {
@@ -86,7 +85,7 @@ const Menu = styled.div`
     transition: var(--transition);
     position: relative;
     width: 120px;
-    text-align: left;
+    text-align: center;
     
   }
 

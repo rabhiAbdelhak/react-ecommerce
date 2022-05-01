@@ -40,7 +40,7 @@ export default Product;
 
 const Wrapper = styled.article`
   position: relative;
-  border-radius: 5px;
+  border-radius: var(--radius);
   height: 250px;
   overflow: hidden;
   cursor: pointer;
@@ -112,6 +112,6 @@ const Wrapper = styled.article`
   img {
     height: 250px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: var(--radius);
   }
 `;

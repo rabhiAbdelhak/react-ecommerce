@@ -73,6 +73,6 @@ ${tablette({marginLeft: 0})};
 
 img{
   height: 100%;
-  border-radius: 5px;
+  border-radius: var(--radius);
 }
 `

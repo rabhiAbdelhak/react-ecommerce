@@ -55,7 +55,7 @@ const Wrapper = styled.article`
     width: 180px;
     height: 200px;
     margin-right: 20px;
-    border-radius: 5px;
+    border-radius: var(--radius);
     overflow: hidden;
     ${mobile({width: '90px', height: '100px'})};
   }
@@ -106,7 +106,7 @@ const Wrapper = styled.article`
     width: 30px;
     background: transparent;
     border: 1px solid var(--primary-color);
-    border-radius: 5px;
+    border-radius: var(--radius);
     color: var(--primary-color);
     display: flex;
     justify-content: center;

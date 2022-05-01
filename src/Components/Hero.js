@@ -18,7 +18,7 @@ const Hero = () => {
           tempor laboris veniam enim minim enim. Qui anim culpa non laborum
           culpa non.
         </p>
-        <Link className='btn' to='/products'>Shop Now</Link>
+        <Link className='btn big-small-animation' to='/products'>Shop Now</Link>
       </Text>
       <ImageContainer >
         <img src='assets/image/office.jpg' alt='about'/>
@@ -57,7 +57,8 @@ p{
 a {
   background: var(--secondary-color);
   color: var(--neutral-dark);
-  width: 120px;
+  width: 150px;
+  text-transform: uppercase;
   padding: 7px;
   text-align: center;
 }
@@ -73,6 +74,6 @@ ${tablette({display: 'none'})};
 
 img{
   max-height: 100%;
-  border-radius: 5px;
+  border-radius: var(--radius);
 }
 `

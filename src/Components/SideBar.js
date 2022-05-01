@@ -37,14 +37,14 @@ export default SideBar;
 const Wrapper = styled.aside`
   position: fixed;
   top: 90px;
-  left: 0;
+  right: 0;
   height: 100vh;
   width: 270px;
   border-top: 1px solid var(--primary-color);
   background: var(--neutral-dark);
   transition: 0.8s;
   z-index: 999;
-  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(-100%)")};
+  transform: ${(props) => (props.show ? "translateX(0)" : "translateX(100%)")};
   ${largescreen({ display: "none" })};
   header {
     min-height: 70px;

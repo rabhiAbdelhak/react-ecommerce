@@ -72,7 +72,7 @@ const SingleProduct = () => {
               <h3>Brand : </h3> <p>{company}</p>
             </div>
           </MoreInfo>
-          <ProductActions/>
+          {stock > 0 && <ProductActions/>}
         </Information>
       </Container>
     </Wrapper>
@@ -110,7 +110,7 @@ flex: 1;
   line-height: 1.7;
   letter-spacing: 1px;
   margin: 20px 0;
-  font-weight: bold;
+  font-weight: 300;
 
 }
 `;

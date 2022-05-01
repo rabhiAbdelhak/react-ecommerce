@@ -35,7 +35,7 @@ a {
   background: var(--primary-color);
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: var(--radius);
 }
 
 `

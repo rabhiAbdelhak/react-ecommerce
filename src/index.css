@@ -2,6 +2,7 @@
 
 :root{
   --transition: all 0.5s ease;
+  --radius : 3px;
 }
 /*themes*/
 .light-theme{
@@ -93,6 +94,7 @@ a{
 
 img{
   max-width: 100%;
+  max-height: 100%;
 }
 
 ul{
@@ -126,5 +128,27 @@ main{
   padding: 100px 0;
   max-width: 1050px;
 }
+
+.big-small-animation{
+  animation-name: bigsmall;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.big-small-animation:hover{
+  animation-play-state: paused;
+}
 /*End generale rules*/
 
+/* animations */
+
+@keyframes bigsmall {
+  0%, 100%{
+     transform: scale(1);
+  }
+  50%{
+    transform: scale(1.2);
+  }
+  
+}

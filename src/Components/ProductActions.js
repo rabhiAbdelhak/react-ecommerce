@@ -5,13 +5,16 @@ import { MdOutlineDownloadDone } from "react-icons/md";
 
 //local imports.
 import { useProductsContext } from "../contexts/products_context";
+import { useCartContext } from "../contexts/cart_context";
 
 const ProductActions = () => {
   const {
-    single_product: { colors, stock },
+    single_product: product,
   } = useProductsContext();
+  const {id, name, price, colors, stock } = product;
   const [amount, setAmount] = useState(1);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
+  const {cart, addToCart} = useCartContext();
 
   const checkAmount = (number) => {
     if (number <= 1) return 1;
@@ -29,11 +32,11 @@ const ProductActions = () => {
   return (
     <Wrapper>
       <div className="actions-amount">
-        <button className="actions-amount-btn _flex_center" onClick={increase}>
+        <button className="actions-amount-btn _flex_center" onClick={decrease}>
           <AiOutlineLeft />
         </button>
         <span className="actions-amount-count">{amount}</span>
-        <button className="actions-amount-btn _flex_center" onClick={decrease}>
+        <button className="actions-amount-btn _flex_center" onClick={increase}>
           <AiOutlineRight />
         </button>
       </div>
@@ -52,7 +55,7 @@ const ProductActions = () => {
           );
         })}
       </div>
-      <button className="actions-btn">Add to Cart</button>
+      <button className="actions-btn" onClick={() => addToCart({id, color: selectedColor, amount , product})}>Add to Cart</button>
     </Wrapper>
   );
 };
@@ -101,7 +104,7 @@ const Wrapper = styled.div`
 const Color = styled.div`
   width: 20px;
   height: 20px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   background: ${(props) => props.color};
   cursor: pointer;
   color: white;

@@ -35,7 +35,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   background: white;
-  border-radius: 5px;
+  border-radius: var(--radius);
   transition: var(--transition);
   box-shadow: 2px 2px 7px rgb(0 0 0 / 0.7);
   transform: ${props => props.show ? 'translateX(0)' : 'translateX(100%)'};
@@ -50,7 +50,7 @@ const Wrapper = styled.div`
    left: -27px;
    width:30px;
    height: 30px;
-   border-radius: 5px;
+   border-radius: var(--radius);
    background: white;
    color: var(--primary-color);
    font-size: 20px;

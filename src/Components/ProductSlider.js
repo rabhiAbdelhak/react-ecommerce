@@ -66,7 +66,7 @@ const Wrapper = styled.div`
   .slider-current-img {
     height: 400px;
     margin-bottom: 10px;
-    border-radius: 5px;
+    border-radius: var(--radius);
     overflow: hidden;
     ${mobile({ height: "300px" })};
     position: relative;
@@ -88,7 +88,7 @@ const Wrapper = styled.div`
     min-width: 60px;
     max-height: 100px;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: var(--radius);
     overflow: hidden;
     opacity: 0.8;
     transition: var(--transition);

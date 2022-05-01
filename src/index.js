@@ -8,6 +8,7 @@ import App from "./App";
 import { ComponentContextProvider } from "./contexts/component_context";
 import { ProductsContextProvider } from "./contexts/products_context";
 import { FiterContextProvider } from "./contexts/filter_context";
+import { CartContextProvider } from "./contexts/cart_context";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -17,9 +18,11 @@ root.render(
     <ComponentContextProvider>
       <ProductsContextProvider>
         <FiterContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <CartContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </CartContextProvider>
         </FiterContextProvider>
       </ProductsContextProvider>
     </ComponentContextProvider>

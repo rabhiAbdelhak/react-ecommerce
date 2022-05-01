@@ -67,7 +67,7 @@ const Item = styled.article`
   flex:1;
   background: var(--neutral-dark);
   padding: 25px;
-  border-radius: 5px;
+  border-radius: var(--radius);
   cursor: pointer;
   transition: var(--transition);
   min-height: 250px;

@@ -17,7 +17,9 @@ import ProductActions from "./ProductActions";
 import Modal from './Modal';
 import Product from "./Product";
 import Filters from './Filters';
-import Sort from './Sort'
+import Sort from './Sort';
+import CartItem from "./CartItem";
+import CartTotals from './CartTotals'
 
 
 export {
@@ -41,4 +43,6 @@ export {
   Product,
   Filters,
   Sort,
+  CartItem,
+  CartTotals
 };
