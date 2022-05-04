@@ -12,7 +12,6 @@ const Filters = () => {
   const formRef = useRef();
   const {
     all_products: products,
-    updateCategoriesFilter,
     updateFilters,
     filters: { colors, categories, companies, shipping, max_price, min_price, price},
     clearFilters,

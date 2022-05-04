@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import styled from "styled-components";
 import {AiOutlineBgColors} from 'react-icons/ai'
 import {MdOutlineDownloadDone} from 'react-icons/md'

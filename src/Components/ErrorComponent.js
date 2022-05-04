@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const ErrorComponent = () => {
   return (
     <Wrapper className='_flex_center'>
-        <p>OOps! Somthing went Wrong ! Products can't be charged</p>
+        <p>OOps! Somthing went Wrong !</p>
         <span>Try to fix it by Refreshing the page !</span>
     </Wrapper>
   )

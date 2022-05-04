@@ -1,14 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { IoGrid } from "react-icons/io5";
-import { IoIosListBox } from "react-icons/io";
 
 //local imports
 import {
   Loading,
-  PageTitle,
   Product,
-  Filters,
   Sort,
 } from "../Components";
 import { useFilterContext } from "../contexts/filter_context";
@@ -19,8 +15,6 @@ const Products = () => {
   const { products_loading: loading } = useProductsContext();
   const {
     filtered_products: products,
-    disableGridView,
-    enableGridView,
     grid_view: gridView,
   } = useFilterContext();
 

@@ -13,7 +13,6 @@ const cart_reducer = (state, action) => {
       const {
         payload: { id, color, amount, product },
       } = action;
-      const tem_cart = state.cart;
       const existing_product = state.cart.find(
         (item) => item.id === id + color
       );

@@ -1,5 +1,4 @@
 import React, { useReducer, useEffect, useContext } from "react";
-import { Filters } from "../Components";
 import reducer from "../reducers/filter_reducer";
 
 //local imports

@@ -4,12 +4,12 @@ import { Route, Routes } from "react-router-dom";
 
 //local imports
 import { Footer, Modal, Navbar, SideBar, Themes } from "./Components";
-import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout} from './Pages';
+import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout, AuthWrapper, PrivateRoute} from './Pages';
 
 const  App = () => {
   
   return (
-    <div>
+    <AuthWrapper>
       <Navbar />
       <SideBar />
       <Themes />
@@ -17,14 +17,14 @@ const  App = () => {
       <Routes className='variable-surface'>
         <Route path='/' exact element={<Home/>}/>
         <Route path='/about' exact element={<About/>}/>
-        <Route path='/products' exact element={<Produtcs/>}/>
-        <Route path='/products/:id' exact element={<SingleProduct/>}/>
-        <Route path='/cart' exact element={<Cart/>}/>
-        <Route path='/checkout' exact element={<Checkout/>}/>
+        <Route path='/products'  element={<Produtcs/>}/>
+        <Route path='/products/:id'  element={<SingleProduct/>}/>
+        <Route path='/cart'  element={<Cart/>}/>
+        <Route path='/checkout'  element={<PrivateRoute><Checkout/></PrivateRoute>}/>
         <Route path='/*'  element={<Error/>}/>
       </Routes>
       <Footer/>
-    </div>
+    </AuthWrapper>
   );
 }
 

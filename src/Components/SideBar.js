@@ -65,7 +65,7 @@ const Menu = styled.div`
   a {
     padding: 10px 15px;
     color: var(--secondary-color);
-    transtion: var(--transition);
+    transition: var(--transition);
   }
 
   a:hover,

@@ -98,7 +98,6 @@ const filter_reducer = (state, action) => {
         },
       };
 
-      return state;
     //end update filters
 
     //start products filter

@@ -1,12 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { FiLogOut, FiShoppingCart } from "react-icons/fi";
+import { FiLogIn, FiLogOut, FiShoppingCart } from "react-icons/fi";
 import { useNavigate } from 'react-router-dom';
+
+//local imports
 import { useCartContext } from '../contexts/cart_context';
+import { useUserContext } from '../contexts/user_context';
 
 const NavButtons = ({container}) => {
   const navigate = useNavigate()
   const {total_items} = useCartContext();
+  const {loginWithRedirect , isUser, logout} = useUserContext();
+ 
   return (
     <Wrapper container={container}>
         <CartIcon onClick={() => navigate('/cart')}>
@@ -14,10 +19,14 @@ const NavButtons = ({container}) => {
           <FiShoppingCart className="icon" />
           <Badge className="_flex_center">{total_items}</Badge>
         </CartIcon>
-        <Logout>
+        {isUser && <Logout onClick={() => logout({returnTo: window.location.origin})}>
           Logout
           <FiLogOut className="icon" />
-        </Logout>
+        </Logout>}
+        {!isUser && <Logout onClick={() => loginWithRedirect('/')}>
+          Login
+          <FiLogIn className="icon" />
+        </Logout>}
     </Wrapper>
   )
 }

@@ -10,11 +10,13 @@ import {largescreen} from '../Utilities/Responsive';
 import { links } from "../Utilities/constants";
 import NavButtons from "./NavButtons";
 import Logo from "./Logo";
+import { useUserContext } from "../contexts/user_context";
 
 
 const Navbar = () => {
   
   const { showSidebar, openSidebar, closeSidebar } = useComponentContext();
+  const {isUser} = useUserContext();
   return (
     <Wrapper>
       <Logo/>
@@ -26,9 +28,9 @@ const Navbar = () => {
               return <NavLink key={id} to={link}>{name}</NavLink>
             })
           }
-          <li>
+          {isUser && <li>
             <NavLink to='/checkout'>Checkout</NavLink>
-          </li>
+          </li>}
         </ul>
       </Menu>
       <NavButtons container='navbar'/>

@@ -11,10 +11,10 @@ const ProductActions = () => {
   const {
     single_product: product,
   } = useProductsContext();
-  const {id, name, price, colors, stock } = product;
+  const {id, colors, stock } = product;
   const [amount, setAmount] = useState(1);
   const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const {cart, addToCart} = useCartContext();
+  const {addToCart} = useCartContext();
 
   const checkAmount = (number) => {
     if (number <= 1) return 1;

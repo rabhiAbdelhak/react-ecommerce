@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { mobile, tablette } from '../Utilities/Responsive';
+import { mobile} from '../Utilities/Responsive';
 
 const Newsletter = () => {
 

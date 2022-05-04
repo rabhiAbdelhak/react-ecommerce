@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
@@ -6,13 +6,12 @@ import styled from "styled-components";
 //local imports
 import { useProductsContext } from "../contexts/products_context";
 import { formatPrice } from "../Utilities/helpers";
-import { mobile, tablette } from "../Utilities/Responsive";
+import {tablette } from "../Utilities/Responsive";
 import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars, ProductActions } from "../Components";
 
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const navigate = useNavigate();
   const {
     fetchSingleProduct,
@@ -37,10 +36,7 @@ const SingleProduct = () => {
   if (loading) return <main><Loading /></main>;
   if (error) return <main><ErrorComponent /></main>;
   const {
-    shipping,
     price,
-    colors,
-    category,
     images,
     reviews,
     stars,

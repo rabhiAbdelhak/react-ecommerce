@@ -1,3 +1,4 @@
+import React from 'react';
 import {BsJournals} from 'react-icons/bs';
 import {BiTask} from 'react-icons/bi';
 import {IoCreateOutline} from 'react-icons/io5';
