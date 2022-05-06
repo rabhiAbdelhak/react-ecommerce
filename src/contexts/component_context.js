@@ -8,6 +8,8 @@ import {
   CLOSE_THEME_CONTAINER,
   CHANGE_THEME,
   TOGGLE_FILTERS,
+  OPEN_ADD_TO_CART,
+  CLOSE_ADD_TO_CART
 } from '../Utilities/actions';
 
 import { component_reducer } from '../reducers/components_reducer';
@@ -21,6 +23,7 @@ const initialState = {
   showThemeContainer : false,
   showModal: false,
   showFilters : false,
+  AddToCartPosition: {left : '0', top: '0'},
 }
 
 
@@ -60,6 +63,14 @@ const ComponentContextProvider = ({children}) => {
   const changeTheme = (theme) => {
     dispatch({type:CHANGE_THEME, payload: theme })
   }
+
+  const openAddToCart = (position) => {
+        dispatch({type: OPEN_ADD_TO_CART, payload: position})
+  }
+
+  const closeAddToCart = () => {
+        dispatch({type: CLOSE_ADD_TO_CART})
+  }
   
   //change and store theme in local storage
   useEffect(() => {
@@ -79,7 +90,9 @@ const ComponentContextProvider = ({children}) => {
           changeTheme,
           openModal,
           closeModal,
-          toggleFilters
+          toggleFilters,
+          openAddToCart,
+          closeAddToCart
       }
   }>
       {children}

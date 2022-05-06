@@ -76,12 +76,12 @@ button,
   transition: var(--transition);
 }
 
-button:hover,
+button:not(#submit):hover,
 .btn:hover{
   transform: scale(1.08);
 }
 
-button:active,
+button:not(#submit):active,
 .btn:active{
   transform: scale(0.9);
 }
@@ -139,6 +139,12 @@ main{
 .big-small-animation:hover{
   animation-play-state: paused;
 }
+
+.updown-animation{
+  animation-name: updown;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
 /*End generale rules*/
 
 /* animations */
@@ -151,4 +157,13 @@ main{
     transform: scale(1.2);
   }
   
+}
+
+@keyframes updown {
+  0%{
+    height: 0px;
+  }
+  100%{
+    height: 50px;
+  }
 }

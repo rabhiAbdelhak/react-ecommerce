@@ -20,7 +20,9 @@ import Filters from './Filters';
 import Sort from './Sort';
 import CartItem from "./CartItem";
 import CartTotals from './CartTotals'
-
+import StripeCheckout from "./StripeCheckout";
+import EmptyCartMessage from './EmptyCartMessage';
+import AddTocartComponent from './AddTocartComponent'
 
 export {
   Navbar,
@@ -44,5 +46,8 @@ export {
   Filters,
   Sort,
   CartItem,
-  CartTotals
+  CartTotals,
+  StripeCheckout,
+  EmptyCartMessage,
+  AddTocartComponent
 };

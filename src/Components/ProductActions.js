@@ -7,7 +7,7 @@ import { MdOutlineDownloadDone } from "react-icons/md";
 import { useProductsContext } from "../contexts/products_context";
 import { useCartContext } from "../contexts/cart_context";
 
-const ProductActions = () => {
+const ProductActions = ({bySide}) => {
   const {
     single_product: product,
   } = useProductsContext();
@@ -29,8 +29,10 @@ const ProductActions = () => {
   const decrease = () => {
     setAmount((prevamount) => checkAmount(prevamount - 1));
   };
+
+  
   return (
-    <Wrapper>
+    <Wrapper bySide = {bySide}>
       <div className="actions-amount">
         <button className="actions-amount-btn _flex_center" onClick={decrease}>
           <AiOutlineLeft />
@@ -68,6 +70,7 @@ const Wrapper = styled.div`
   margin-top: 20px;
   display: flex;
   align-items: center;
+  ${props => props.bySide ? 'flex-direction: column; gap: 15px;' : ''};
   justify-content: space-between;
   padding: 10px 15px;
   

@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 
 
 //local imports
-import { Footer, Modal, Navbar, SideBar, Themes } from "./Components";
+import { AddTocartComponent, Footer, Modal, Navbar, SideBar, Themes } from "./Components";
 import {About, Cart, Home, Produtcs, SingleProduct, Error, Checkout, AuthWrapper, PrivateRoute} from './Pages';
 
 const  App = () => {
@@ -14,6 +14,7 @@ const  App = () => {
       <SideBar />
       <Themes />
       <Modal/>
+      <AddTocartComponent/>
       <Routes className='variable-surface'>
         <Route path='/' exact element={<Home/>}/>
         <Route path='/about' exact element={<About/>}/>

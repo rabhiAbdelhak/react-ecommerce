@@ -9,12 +9,20 @@ import { useComponentContext } from "../contexts/component_context";
 import { useProductsContext } from "../contexts/products_context";
 
 const Product = ({ id, name, price, image }) => {
-  const {openModal} = useComponentContext();
+  const {openModal, openAddToCart} = useComponentContext();
   const {fetchSingleProduct} = useProductsContext()
 
   const getSlider = () => {
     fetchSingleProduct(id);
     openModal();
+  }
+
+  const getAddToCartComponent = (e) => {
+    const {left, top} = e.target.getBoundingClientRect();
+    fetchSingleProduct(id);
+    console.log(left , top);
+    openAddToCart({left, top});
+
   }
   return (
     <Wrapper key={id}>
@@ -24,9 +32,12 @@ const Product = ({ id, name, price, image }) => {
         <span className="price">{formatPrice(price)}</span>
       </div>
       <div className="actions _flex_center">
-        <Link className="actions-btn _flex_center" to={"/products/" + id}>
+        <button 
+             className="actions-btn _flex_center"
+             onClick={getAddToCartComponent}
+             >
           <FaCartPlus />
-        </Link>
+        </button>
         <Link className="actions-btn _flex_center" to={"/products/" + id}>
           <FaSearch />
         </Link>

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 //local imports
-import { CartItem, CartTotals } from "../Components";
+import { CartItem, CartTotals, EmptyCartMessage } from "../Components";
 import { useCartContext } from "../contexts/cart_context";
 import { tablette, mobile } from "../Utilities/Responsive";
 
@@ -13,12 +13,7 @@ const Cart = () => {
   if (cart.length === 0)
     return (
       <Wrapper>
-        <div className="cart-no-item _flex_center">
-           <h3>There is no Item Added to your Cart</h3>
-           <botton className=" actions-shop-btn" onClick= {() => navigate("/products")}>
-              Continue Shopping
-            </botton>
-        </div>
+        <EmptyCartMessage/>
       </Wrapper>
     );
   return (
@@ -51,19 +46,6 @@ const Wrapper = styled.main`
     flex: 1;
   }
 
-  .cart-no-item{
-    padding: 15px 20px;
-    margin: 200px auto;
-    text-align: center;
-    width: 80%;
-    flex-direction: column;
-  }
-
-  .cart-no-item h3{
-    color: var(--secondary-color);
-    font-size: 25px;
-    font-weight: 400;
-  }
 
   .cart-actions{
     display: flex;

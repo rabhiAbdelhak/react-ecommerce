@@ -1,37 +1,47 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
 import { FiLogIn, FiLogOut, FiShoppingCart } from "react-icons/fi";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 //local imports
-import { useCartContext } from '../contexts/cart_context';
-import { useUserContext } from '../contexts/user_context';
+import { useCartContext } from "../contexts/cart_context";
+import { useUserContext } from "../contexts/user_context";
+import { CLEAR_CART } from "../Utilities/actions";
 
-const NavButtons = ({container}) => {
-  const navigate = useNavigate()
-  const {total_items} = useCartContext();
-  const {loginWithRedirect , isUser, logout} = useUserContext();
- 
+const NavButtons = ({ container }) => {
+  const navigate = useNavigate();
+  const { total_items, clearCart } = useCartContext();
+  const { loginWithRedirect, isUser, logout } = useUserContext();
+
   return (
     <Wrapper container={container}>
-        <CartIcon onClick={() => navigate('/cart')}>
-          Cart
-          <FiShoppingCart className="icon" />
-          <Badge className="_flex_center">{total_items}</Badge>
-        </CartIcon>
-        {isUser && <Logout onClick={() => logout({returnTo: window.location.origin})}>
+      <CartIcon onClick={() => navigate("/cart")}>
+        Cart
+        <FiShoppingCart className="icon" />
+        <Badge className="_flex_center">{total_items}</Badge>
+      </CartIcon>
+      {isUser && (
+        <Logout
+          onClick={() => {
+            clearCart();
+            logout({ returnTo: window.location.origin });
+          }}
+        >
           Logout
           <FiLogOut className="icon" />
-        </Logout>}
-        {!isUser && <Logout onClick={() => loginWithRedirect('/')}>
+        </Logout>
+      )}
+      {!isUser && (
+        <Logout onClick={() => loginWithRedirect("/")}>
           Login
           <FiLogIn className="icon" />
-        </Logout>}
+        </Logout>
+      )}
     </Wrapper>
-  )
-}
+  );
+};
 
-export default NavButtons
+export default NavButtons;
 
 const Wrapper = styled.div`
   display: flex;
@@ -42,8 +52,8 @@ const Wrapper = styled.div`
     font-size: 25px;
     margin-left: 5px;
   }
-  @media (max-width:992px){
-      ${ props => props.container === 'navbar' ? 'display:none' : ''}
+  @media (max-width: 992px) {
+    ${(props) => (props.container === "navbar" ? "display:none" : "")}
   }
 `;
 

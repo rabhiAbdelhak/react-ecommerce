@@ -139,6 +139,37 @@ var removeElement = function(nums, val) {
     return nums.length;
 };
 
-arr = [1]
-value = 1;
-console.log(removeElement(arr, value))
+// arr = [1]
+// value = 1;
+// console.log(removeElement(arr, value))
+
+// Pascal's triangle
+
+var generate = function(numRows) {
+ 
+  if(numRows >30 || numRows <= 1) return [];
+  var pascal = new Array(numRows);
+  if(numRows === 1) {
+    pascal[0] = [1]
+    return pascal;
+  }else{
+    pascal[0] = [1];
+  }
+  for(var i = 1; i < numRows; i++){
+    var tmpArray = new Array(i+1);
+    tmpArray[0] = 1;
+    tmpArray[i] = 1;
+    previousArray = pascal[i-1];
+     for(var j = 1 ; j < i; j++){
+        tmpArray[j] = previousArray[j] + previousArray[j-1]
+     }
+     pascal[i] = [...tmpArray];
+  }
+  return pascal;
+};
+let a = 10;
+let x = generate(a);
+
+for(let i =0 ; i<a ; i++){
+  console.log(x[i]);
+}
