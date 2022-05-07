@@ -32,7 +32,7 @@ const AddTocartComponent = () => {
   if(product)
   return (
     <Wrapper position = {position} ref = {componentRef}>
-         {loading ? <Loading/> : <div><h4>{product.name}</h4><ProductActions bySide={true}/></div>}
+         {loading ? <Loading/> : <div><h4>{product.name}</h4>{product.stock > 0 ? <ProductActions bySide={true}/> : <h4>Not available !</h4>}</div>}
     </Wrapper>
   )
 }
@@ -44,11 +44,12 @@ position: fixed;
 background: var(--very-light-color);
 border-radius: var(--radius);
 top: 0;
-left: 0;
+left: -2px;
 width: 180px;
 padding: 15px;
 transition: 0.3s;
 z-index: 1010;
+box-shadow: 0px 2px 5px var(--secondary-color);
 
 h4{
     text-transform: capitalize;

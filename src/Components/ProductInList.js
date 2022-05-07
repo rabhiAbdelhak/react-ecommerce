@@ -6,9 +6,11 @@ import { FaSearch, FaCartPlus, FaImages } from "react-icons/fa";
 //local imports
 import { formatPrice } from "../Utilities/helpers";
 import { mobile } from "../Utilities/Responsive";
+import { useComponentContext } from "../contexts/component_context";
 
 const ProductInList = ({ id, name, description, image, price }) => {
   const [seeMore, setSeeMore] = useState(false);
+  const {openAddToCart, openModal} = useComponentContext();
   return (
     <Wrapper className="product">
       <div className="image-holder ">
@@ -27,13 +29,13 @@ const ProductInList = ({ id, name, description, image, price }) => {
           </span>
         </p>
         <div className="actions">
-          <button className="action-btn">
+          <button className="action-btn" onClick={(e) => openAddToCart(e, id)}>
             <FaCartPlus />
           </button>
           <Link className="btn action-btn" to={`/products/${id}`}>
             <FaSearch />
           </Link>
-          <button className="action-btn">
+          <button className="action-btn" onClick={(e) => openModal(e, id)}>
             <FaImages />
           </button>
         </div>

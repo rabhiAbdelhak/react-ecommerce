@@ -17,15 +17,8 @@ const Product = ({ id, name, price, image }) => {
     openModal();
   }
 
-  const getAddToCartComponent = (e) => {
-    const {left, top} = e.target.getBoundingClientRect();
-    fetchSingleProduct(id);
-    console.log(left , top);
-    openAddToCart({left, top});
-
-  }
   return (
-    <Wrapper key={id}>
+    <Wrapper>
       <img src={image} alt={name} />
       <div className="info">
         <p className="name">{name}</p>
@@ -34,7 +27,7 @@ const Product = ({ id, name, price, image }) => {
       <div className="actions _flex_center">
         <button 
              className="actions-btn _flex_center"
-             onClick={getAddToCartComponent}
+             onClick={(e) => openAddToCart(e, id)}
              >
           <FaCartPlus />
         </button>

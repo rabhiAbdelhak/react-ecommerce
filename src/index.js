@@ -24,8 +24,8 @@ ReactDOM.render(
       cacheLocation="localstorage"
     >
       <UserContextProvider>
-        <ComponentContextProvider>
-          <ProductsContextProvider>
+        <ProductsContextProvider>
+          <ComponentContextProvider>
             <FiterContextProvider>
               <CartContextProvider>
                 <BrowserRouter>
@@ -33,8 +33,8 @@ ReactDOM.render(
                 </BrowserRouter>
               </CartContextProvider>
             </FiterContextProvider>
-          </ProductsContextProvider>
-        </ComponentContextProvider>
+          </ComponentContextProvider>
+        </ProductsContextProvider>
       </UserContextProvider>
     </Auth0Provider>
   </React.StrictMode>,

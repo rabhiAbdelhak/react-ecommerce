@@ -13,6 +13,7 @@ import {
 } from '../Utilities/actions';
 
 import { component_reducer } from '../reducers/components_reducer';
+import { useProductsContext } from './products_context';
 
 const AppContext = React.createContext();
 
@@ -30,6 +31,7 @@ const initialState = {
 
 const ComponentContextProvider = ({children}) => {
   const [state, dispatch] = useReducer(component_reducer, initialState)
+  const {fetchSingleProduct} = useProductsContext();
 
   const openSidebar = () => {
     dispatch({type: OPEN_SIDEBAR})
@@ -43,7 +45,8 @@ const ComponentContextProvider = ({children}) => {
     dispatch({type: TOGGLE_FILTERS})
   }
 
-  const openModal = () => {
+  const openModal = (e, id) => {
+    fetchSingleProduct(id);
     dispatch({type: 'OPEN_MODAL'});
   }
   
@@ -64,8 +67,10 @@ const ComponentContextProvider = ({children}) => {
     dispatch({type:CHANGE_THEME, payload: theme })
   }
 
-  const openAddToCart = (position) => {
-        dispatch({type: OPEN_ADD_TO_CART, payload: position})
+  const openAddToCart = (e, id) => {
+       const {left, top} = e.target.getBoundingClientRect();
+       fetchSingleProduct(id);
+       dispatch({type: OPEN_ADD_TO_CART, payload: {left , top}})
   }
 
   const closeAddToCart = () => {
