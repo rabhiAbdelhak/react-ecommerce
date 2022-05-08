@@ -13,7 +13,7 @@ import ProductSlider from './ProductSlider';
 const Modal = () => {
   const {single_product_loading: loading, single_product_error: error} = useProductsContext();
   const {showModal ,closeModal} = useComponentContext();
-  
+  console.log(error);
   return (
     <Wrapper className='_flex_center' show={showModal}>
         <button className='modal-close' onClick={closeModal}><FaWindowClose/></button>

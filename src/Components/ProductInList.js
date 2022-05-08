@@ -35,7 +35,7 @@ const ProductInList = ({ id, name, description, image, price }) => {
           <Link className="btn action-btn" to={`/products/${id}`}>
             <FaSearch />
           </Link>
-          <button className="action-btn" onClick={(e) => openModal(e, id)}>
+          <button className="action-btn" onClick={() => openModal(id)}>
             <FaImages />
           </button>
         </div>

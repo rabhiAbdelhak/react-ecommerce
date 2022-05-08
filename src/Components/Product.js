@@ -12,10 +12,6 @@ const Product = ({ id, name, price, image }) => {
   const {openModal, openAddToCart} = useComponentContext();
   const {fetchSingleProduct} = useProductsContext()
 
-  const getSlider = () => {
-    
-    openModal();
-  }
 
   return (
     <Wrapper>
@@ -34,7 +30,7 @@ const Product = ({ id, name, price, image }) => {
         <Link className="actions-btn _flex_center" to={"/products/" + id}>
           <FaSearch />
         </Link>
-        <button className='actions-btn _flex_center' onClick={getSlider}><FaImages/></button>
+        <button className='actions-btn _flex_center' onClick={() => openModal(id)}><FaImages/></button>
       </div>
     </Wrapper>
   );

@@ -45,7 +45,7 @@ const ComponentContextProvider = ({children}) => {
     dispatch({type: TOGGLE_FILTERS})
   }
 
-  const openModal = (e, id) => {
+  const openModal = (id) => {
     fetchSingleProduct(id);
     dispatch({type: 'OPEN_MODAL'});
   }
