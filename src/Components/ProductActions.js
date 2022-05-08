@@ -81,10 +81,15 @@ const Wrapper = styled.div`
   }
   .actions-amount-btn {
     width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: var(--neutral-light);
-    color: var(--secondary-color);
+      height: 25px;
+      border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 15px;
+      color: var(--secondary-color);
+      background: var(--vary-light-color);
+      border: 1px solid  var(--secondary-color);
   }
 
   .actions-amount-count {

@@ -1,12 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { PageTitle } from "../Components";
 import { tablette } from "../Utilities/Responsive";
 
 const About = () => {
   return (
     <Wrapper>
-      <PageTitle title="Home >> About" />
       <Container className="container">
         <Text>
           <h1>Our Story</h1>
@@ -19,12 +17,6 @@ const About = () => {
             tempor laboris veniam enim minim enim. Qui anim culpa non laborum
             culpa non.
             Tempor quis dolor cupidatat sit nostrud exercitation aliqua
-            incididunt amet sunt nostrud cillum minim. Exercitation cillum
-            ullamco deserunt incididunt quis eu aute laboris fugiat magna veniam
-            elit exercitation id. Qui eiusmod cupidatat do ex aliqua ea irure.
-            Dolore aliqua adipisicing sint fugiat amet occaecat ullamco nostrud
-            tempor laboris veniam enim minim enim. Qui anim culpa non laborum
-            culpa non.
           </p>
         </Text>
         <ImageContainer >

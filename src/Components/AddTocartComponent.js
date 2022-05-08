@@ -17,17 +17,18 @@ const AddTocartComponent = () => {
         const {left, top} = position
         if(left !== '0' && top !== '0'){
             componentRef.current.style.transform = `translate(${left}px, ${top + 55}px)`;
-            console.log('here i ma')
         }else{
             componentRef.current.style.transform = `translate(-100%, 50%)`;
         }
-      console.log(left, top)
     }, [position])
 
     useEffect(() => {
       window.addEventListener('scroll' , closeAddToCart);
-
-      return () => window.removeEventListener('scroll', closeAddToCart)
+      componentRef.current.addEventListener('mouseleave', closeAddToCart)
+      return () => {
+        window.removeEventListener('scroll', closeAddToCart)
+        componentRef.current.removeEventListener('mouseleave', closeAddToCart);
+      }
     }, [position])
   if(product)
   return (

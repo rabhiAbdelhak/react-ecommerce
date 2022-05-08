@@ -13,7 +13,7 @@ const Product = ({ id, name, price, image }) => {
   const {fetchSingleProduct} = useProductsContext()
 
   const getSlider = () => {
-    fetchSingleProduct(id);
+    
     openModal();
   }
 

@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { useProductsContext } from "../contexts/products_context";
 import { formatPrice } from "../Utilities/helpers";
 import {tablette } from "../Utilities/Responsive";
-import { Loading, ErrorComponent, PageTitle, ProductSlider, Stars, ProductActions } from "../Components";
+import { Loading, ErrorComponent, ProductSlider, Stars, ProductActions } from "../Components";
 
 
 const SingleProduct = () => {
@@ -48,7 +48,6 @@ const SingleProduct = () => {
   
   return (
     <Wrapper>
-      <PageTitle title={`Home >> Products >>${name}`} />
       <Container className="container">
         <ProductSlider images={images}/> 
         <Information>

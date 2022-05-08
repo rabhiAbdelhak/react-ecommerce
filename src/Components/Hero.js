@@ -14,9 +14,7 @@ const Hero = () => {
           incididunt amet sunt nostrud cillum minim. Exercitation cillum
           ullamco deserunt incididunt quis eu aute laboris fugiat magna veniam
           elit exercitation id. Qui eiusmod cupidatat do ex aliqua ea irure.
-          Dolore aliqua adipisicing sint fugiat amet occaecat ullamco nostrud
-          tempor laboris veniam enim minim enim. Qui anim culpa non laborum
-          culpa non.
+          Dolore aliqua adipisicing sint fugiat.
         </p>
         <Link className='btn big-small-animation' to='/products'>Shop Now</Link>
       </Text>

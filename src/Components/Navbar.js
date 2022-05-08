@@ -91,11 +91,15 @@ const Menu = styled.div`
     
   }
 
-  a:hover,
-  a.active {
+  a:hover{
     background: var(--neutral-light);
     color: var(--primary-color);
     font-weight: bold;
+  }
+
+  a.active {
+    font-weight: bold;
+    color: var(--primary-color);
   }
 
   a::before {

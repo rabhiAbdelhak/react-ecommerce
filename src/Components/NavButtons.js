@@ -7,15 +7,17 @@ import { useNavigate } from "react-router-dom";
 import { useCartContext } from "../contexts/cart_context";
 import { useUserContext } from "../contexts/user_context";
 import { CLEAR_CART } from "../Utilities/actions";
+import { useComponentContext } from "../contexts/component_context";
 
 const NavButtons = ({ container }) => {
   const navigate = useNavigate();
+  const {closeSidebar} = useComponentContext();
   const { total_items, clearCart } = useCartContext();
   const { loginWithRedirect, isUser, logout } = useUserContext();
 
   return (
     <Wrapper container={container}>
-      <CartIcon onClick={() => navigate("/cart")}>
+      <CartIcon onClick={() => {navigate("/cart"); closeSidebar()}}>
         Cart
         <FiShoppingCart className="icon" />
         <Badge className="_flex_center">{total_items}</Badge>
