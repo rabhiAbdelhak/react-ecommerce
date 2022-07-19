@@ -37,12 +37,6 @@ export const themes = [
     name: "dark-theme",
     color: "#161616",
   },
-  {
-    id: 3,
-    title: "Girls",
-    name: "girl-theme",
-    color: "#2C1320",
-  },
 ];
 
 export const services = [

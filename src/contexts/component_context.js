@@ -20,7 +20,7 @@ const AppContext = React.createContext();
 
 const initialState = {
   showSidebar : false,
-  theme: localStorage.getItem('theme') || 'light-theme',
+  theme: localStorage.getItem('theme') || 'dark-theme',
   showThemeContainer : false,
   showModal: false,
   showFilters : false,

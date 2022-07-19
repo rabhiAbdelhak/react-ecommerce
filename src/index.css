@@ -6,10 +6,10 @@
 }
 /*themes*/
 .light-theme{
-  --primary-color : #65B891;
-  --secondary-color: #2F2235;
-  --neutral-light: rgb(186, 201, 190);
-  --very-light-color: #effff6;
+  --primary-color : #CB0040;
+  --secondary-color: #11001a;
+  --neutral-light: #f8cdc809;
+  --very-light-color: #f3e3e1;
   --neutral-dark: #ffffff;
 }
 
